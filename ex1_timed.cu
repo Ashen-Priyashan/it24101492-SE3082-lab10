@@ -47,9 +47,6 @@ int main()
 #else
     add<<<N, 1>>>(d_a, d_b, d_c);
 #endif
-    const cudaError_t launch_error = cudaGetLastError();
-    if (launch_error != cudaSuccess)
-        std::printf("Kernel launch failed: %s\n", cudaGetErrorString(launch_error));
 #ifndef OMIT_DEVICE_SYNC
     cudaDeviceSynchronize();
 #endif
